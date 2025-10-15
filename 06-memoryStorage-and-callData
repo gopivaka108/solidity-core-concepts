@@ -1,0 +1,18 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.18;
+
+contract DataLocations {
+    string[] public items;
+
+    function addItem(string memory newItem) public {
+        items.push(newItem); // stored in `storage`
+    }
+
+    function getItem(uint index) public view returns (string memory) {
+        return items[index]; // copied from `storage` to `memory`
+    }
+
+    function processItems(string[] calldata inputItems) public pure returns (string memory) {
+        return inputItems[0]; // accessed from `calldata`, read-only
+    }
+}
